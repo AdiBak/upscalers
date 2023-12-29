@@ -48,7 +48,7 @@ class UpscalerRealESRGAN(Upscaler):
                 scale=self.outscale,
                 model_path=info.local_data_path,
                 model=info.model(),
-                half=not opts.no_half and not opts.upcast_sampling
+                half=False # allow for CPU usage (encountered RuntimeError with previous setting)
             )
             if opts.cache_models_on_device:
                 self.on_device_model_cache = upsampler
