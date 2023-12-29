@@ -17,7 +17,8 @@ progress_print_out = sys.stdout
 #
 # Device
 #
-device = 'cuda'
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 # Disable half-precision
 no_half = False
 # channels last
